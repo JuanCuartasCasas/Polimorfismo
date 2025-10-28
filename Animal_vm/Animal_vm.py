@@ -8,9 +8,10 @@ class AnimalViewModel:
         self.vm = vm
         self.vm.especie = Observable(vm.especie)
         self.vm.edad = Observable(vm.edad)
+        self.vm.dieta = Observable(vm.dieta)
         self.error = Observable(None)
         self.mensaje = Observable(None)
-
+   
     def especie(self,espe):
         try:
             self.error.value = None
@@ -18,8 +19,18 @@ class AnimalViewModel:
 
         except Exception as exc:
             self.error.value = str(exc)
-    def edad(self,edad):  
+    
+    def edad(self,age):  
         try:
             self.error.value = None
-            self.vm.edad.value = edad
-
+            self.vm.edad.value = age
+        except Exception as exc:
+            self.error.value = str(exc)
+    
+    def dieta(self,dieta):  
+        try:
+            self.error.value = None
+            self.vm.dieta.value = dieta
+        except Exception as exc:
+            self.error.value = str(exc)
+    
